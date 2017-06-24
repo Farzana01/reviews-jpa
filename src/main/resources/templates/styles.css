@@ -1,16 +1,26 @@
 body h1 {
-    font-color: red;
+    color: red;
+    font-family: cursive ;
 }
 
 body {
-    background-color: powderblue;
-}
-
-p {
-    background-color: yellow;
+	
+    background-color: lightyellow;
 }
 
 img {
    padding:1px;
    border:1px solid #021a40;
+}
+
+body a {
+
+font-size: 30px;
+color: blue;
+font-family: cursive;
+
+}
+
+p {
+	font : black;
 }
