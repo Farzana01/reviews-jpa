@@ -9,6 +9,6 @@ import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Component;
 
 @Component
-public interface ReviewRepository extends CrudRepository<Review, Long> {
+public interface GenreRepository extends CrudRepository<Genre, Long> {
 
-}
+} 

@@ -1,30 +1,48 @@
 package reviews;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Lob;
+import javax.persistence.ManyToOne;
+
+@Entity 
 public class Review {
 	
 	//Instance variables
+	@Id
+	@GeneratedValue
 	private long id;
+	
 	private String title;
 	private String imageUrl;
-	private String reviewCategory;
+	
+	@ManyToOne
+	private Genre genre; //Foreign key 
+	
+	
+	@Lob
 	private String content;
 	private String date;
+	
+	@Lob
 	private String synopsis;
 	
 	//Constructor
-	public Review(long id, String title, String imageUrl, 
-			String reviewCategory, String content, String date, 
-			String synopsis){
-	 this.id = id;
-	 this.title = title;
-	 this.imageUrl = imageUrl;
-	 this.reviewCategory = reviewCategory;
-	 this.content = content;
-	 this.date = date;
-	 this.synopsis = synopsis;
-	 
-	 
-	}
+			public Review(Genre genre, String title, String content, String date, 
+					String synopsis, String imageUrl){
+			 this.genre = genre;
+			 this.title = title;
+			 this.content = content;
+			 this.date = date;
+			 this.synopsis = synopsis;
+			 this.imageUrl = imageUrl;
+			}
+		
+	//No argument constructor required for JPA
+		private Review() {}
+		
+	
 	//Getters
 	public long getId() {
 		return id;
@@ -35,9 +53,6 @@ public class Review {
 	public String getImageUrl() {
 		return imageUrl;
 	}
-	public String getReviewCategory() {
-		return reviewCategory;
-	}
 	public String getContent() {
 		return content;
 	}
@@ -47,4 +62,8 @@ public class Review {
 	public String getSynopsis() {
 		return synopsis;
 	}
+	public Genre getGenre() {
+		return genre;
+	}
+	
 }

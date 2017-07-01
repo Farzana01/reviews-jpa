@@ -3,19 +3,21 @@
 <head>
 
 	<title>One Lounge Review</title>
-	<link rel="stylesheet" type="text/css" href="/styles.css"></link>
+	<link rel="stylesheet" type="text/css" href="/css/styles.css"></link>
 
 </head>
 <body>
 <h1>One Lounge Review</h1>
 
-<img th:src="${onereview.imageUrl}"/>
+ <img th:src="${selectedReview.imageUrl}"/>
 
-<p th:text="${onereview.title}"></p>
-<p th:text="${onereview.reviewCategory}"></p>
-<p th:text="${onereview.content}"></p>
-<p th:text="${onereview.date}"></p>
-<p th:text="${onereview.synopsis}"></p>
+<p th:text="${selectedReview.title}"></p>
+<p th:text="${selectedReview.genre.title}"></p>
+<p th:text="${selectedReview.content}"></p>
+<p th:text="${selectedReview.date}"></p>
+<p th:text="${selectedReview.synopsis}"></p>
+
+<a class = "backtomain" th:href="@{/genres(title=${genresAsCollection})}">Back to Movie Lounge</a> 
 
 </body>
 </html>

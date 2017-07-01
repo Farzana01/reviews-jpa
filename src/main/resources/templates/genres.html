@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<title>Lounge Movie Reviews</title>
+	<link rel="stylesheet" type="text/css" href="/css/styles.css"></link>
+</head>
+<body>
+<h1>The Lounge Movie Reviews</h1>
+    <h2> Welcome Movie Lovers! Please click on the links below to review your genre.</h2>
+
+
+<img src="images/genre.png" width="500" height="250"/>
+ 
+
+<a th:each="genre: ${genresAsCollection}" th:href="@{/genre(id=${genre.id})}">
+<div th:text="${genre.title}"></div></a>
+<div id="background"></div> 
+
+
+</body>
+</html>
