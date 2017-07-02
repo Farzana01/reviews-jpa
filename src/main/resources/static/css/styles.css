@@ -1,5 +1,5 @@
 body h1 {
-    color: blue;
+     color: blue;
      font-family: cursive;
      font-size: 20px ;
 }
@@ -24,4 +24,12 @@ font-family: cursive;
 }
 p {
 	font : black;
+}
+
+a {
+    color: black
+     font-family: cursive;
+     font-size: 10px ;
+
+
 }

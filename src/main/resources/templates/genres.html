@@ -6,10 +6,10 @@
 </head>
 <body>
 <h1>The Lounge Movie Reviews</h1>
-    <h2> Welcome Movie Lovers! Please click on the links below to review your genre.</h2>
+    <h2> Welcome Movie Lovers! Please click on the links below to choose movies.</h2>
 
 
-<img src="images/genre.png" width="500" height="250"/>
+<img src="images/genre.jpg" width="500" height="250"/>
  
 
 <a th:each="genre: ${genresAsCollection}" th:href="@{/genre(id=${genre.id})}">

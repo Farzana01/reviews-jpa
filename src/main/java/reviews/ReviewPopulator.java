@@ -16,7 +16,55 @@ public class ReviewPopulator implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) throws Exception {
-		// TODO Auto-generated method stub
+
+		Genre horror = new Genre("Horror");
+		genreRepo.save(horror);
+		Review review4 = new Review(horror, "The Blackcoat’s Daughter",
+				"Two characters on distinct but intersecting paths-the movie is structured like a puzzle.",
+				"Release Date: 02/16/2017",
+				"Two females who suffer from troubling visions and flashbacks, and who are linked together by a boarding school in the Northeast.",
+				"/images/blackcoat.jpg");
+		reviewRepo.save(review4);
+
+		// genreRepo.save(horror);
+		Review review14 = new Review(horror, "Berlin Syndrome",
+				"A terrifying film about the psychological toll of abusive relationships", "Release Date: 05/26/2017",
+				"A passionate holiday romance leads to an obsessive relationship, when an Australian photojournalist wakes one morning in a Berlin apartment and is unable to leave.",
+				"/images/berlinSyndrome.jpg");
+		reviewRepo.save(review14);
+
+		Genre action = new Genre("Action");
+		genreRepo.save(action);
+		Review review5 = new Review(action, "Jurassic World",
+				"If you're looking to sit on the edge of your seat for two hours, welcome!", "Release Date: 06/12/2015",
+				"Jurassic World can't match the original for sheer inventiveness and impact, but it works in its own right as an entertaining -- and visually dazzling -- popcorn thriller.",
+				"/images/action.jpg");
+		reviewRepo.save(review5);
+
+		// genreRepo.save(action);
+		Review review15 = new Review(action, "The Matrix",
+				"A computer hacker learns from mysterious rebels about the true nature of his reality and his role in the war against its controllers ", "Release Date: 03/31/1999",
+				"The Matrix is a smartly crafted combination of spectacular action and groundbreaking special effects..",
+				"/images/matrix.jpg");
+		reviewRepo.save(review15);
+
+		Genre scifi = new Genre("Sci-Fi");
+		genreRepo.save(scifi);
+		Review review6 = new Review(scifi, "Rogue One",
+				"Rogue One: A Star Wars Story,\" an all-new epic adventure..",
+				"Release Date: 12/16/2016",
+				"n a time of conflict, a group of unlikely heroes band together on a mission to steal the plans to the Death Star, the Empire's ultimate weapon of destruction.",
+				"/images/scifi.jpg");
+		reviewRepo.save(review6);
+
+		// genreRepo.save(scifi);
+		Review review16 = new Review(scifi, "Deadpool",
+				"Deadpool hunts down the man who nearly destroyed his life. .",
+				"Release Date: 02/12/2016",
+				"DEADPOOL tells the origin story of former Special Forces operative turned mercenary who after being subjected to a rogue experiment that leaves him with accelerated healing powers, adopts the alter ego Deadpool.",
+				"/images/deadpool.jpg");
+		reviewRepo.save(review16);
+		
 		Genre drama = new Genre("Drama");
 		genreRepo.save(drama);
 		Review review1 = new Review(drama, " Sully ", "The story of Chesley Sullenberger", " Release Date: 9/9/2016",
@@ -37,32 +85,6 @@ public class ReviewPopulator implements CommandLineRunner {
 				"Up is breathtaking in its imaginative detail and astonishing in its emotional range.",
 				"/images/up.jpeg");
 		reviewRepo.save(review3);
-
-		Genre horror = new Genre("Horror");
-		genreRepo.save(horror);
-		Review review4 = new Review(horror, "The Conjuring",
-				"Paranormal investigators Ed and Lorraine Warren work to help a family terrorized by a dark presence in their farmhouse.",
-				"Release Date: 07/19/2013",
-				"Well-crafted and gleefully creepy, The Conjuring ratchets up dread through a series of effective old-school scares..",
-				"/images/theconjuring.jpg");
-		reviewRepo.save(review4);
-
-		Genre action = new Genre("Action");
-		genreRepo.save(action);
-		Review review5 = new Review(action, "Jurassic World",
-				"If you're looking to sit on the edge of your seat for two hours, welcome!", "Release Date: 06/12/2015",
-				"Jurassic World can't match the original for sheer inventiveness and impact, but it works in its own right as an entertaining -- and visually dazzling -- popcorn thriller.",
-				"/images/action.jpg");
-		reviewRepo.save(review5);
-
-		Genre scifi = new Genre("Sci-Fi");
-		genreRepo.save(scifi);
-		Review review6 = new Review(scifi, "The Matrix",
-				"A computer hacker learns from mysterious rebels about the true nature of his reality and his role in the war against its controllers.",
-				"Release Date: 03/31/1999",
-				"Thanks to the Wachowskis' imaginative vision, The Matrix is a smartly crafted combination of spectacular action and groundbreaking special effects.",
-				"/images/scifi.jpg");
-		reviewRepo.save(review6);
 
 	}
 

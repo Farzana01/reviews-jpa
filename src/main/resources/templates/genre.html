@@ -9,6 +9,11 @@
      <h2> Click on the title to see the review.</h2>
 
 <a th:each="review: ${genre.reviews}" th:href="@{/onereview/(id=${review.id})}"><div th:text="${review.title}" ></div></a>
+<img class="info" th:attr="src=@{${imageUrl}}" />
+
+
+
+<a class = "backtomain" th:href="@{/genres(title=${genresAsCollection})}">Back to Movie Lounge</a> 
 
 </body>
 </html> 
