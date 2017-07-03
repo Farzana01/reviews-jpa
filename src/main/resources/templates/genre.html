@@ -3,16 +3,24 @@
 <head>
 	<title>Lounge Movie Reviews</title>
 	<link rel="stylesheet" type="text/css" href="/css/styles.css"></link>
+
 </head>
 <body>
 <h1>The Lounge Movie Genres</h1>
      <h2> Click on the title to see the review.</h2>
-
 <a th:each="review: ${genre.reviews}" th:href="@{/onereview/(id=${review.id})}"><div th:text="${review.title}" ></div></a>
 <img class="info" th:attr="src=@{${imageUrl}}" />
+<br />
 
-
-
+<form method="get"> 
+           <label for="movieName">You can add your own movie name to this genre:</label> 
+           <input type="text" th:field="${genre.title}" value="" />
+           
+	         <button type="submit">Submit</button>
+</form>
+ 
+                
+<br />
 <a class = "backtomain" th:href="@{/genres(title=${genresAsCollection})}">Back to Movie Lounge</a> 
 
 </body>
