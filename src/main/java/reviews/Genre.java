@@ -40,5 +40,10 @@ public class Genre {
 			return reviews;
 		}
 		
+		@Override
+		public String toString() {
+			return title;
+		}
+		
 
 }

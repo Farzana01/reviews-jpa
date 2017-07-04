@@ -45,7 +45,7 @@ public class ReviewsController {
 	
 	@RequestMapping("/reviews")
 	public String fetchReviews(@RequestParam("id")long id, Model model) {
-		model.addAttribute(genreRepo.findOne(id));
+		model.addAttribute("reviewsAsCollection",reviewRepo.findAll());
 		return "reviews";
 	}
 
