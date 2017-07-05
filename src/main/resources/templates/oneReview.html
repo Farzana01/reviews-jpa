@@ -41,7 +41,9 @@ function myFunction() {
 <br />
 <!-- <a class = "moviepage" th:href="@{/genre(title=${genre.id})}"> Go back to choose another movie</a>
 <br /> -->
-<a class = "backtomain" th:href="@{/genres(title=${genresAsCollection})}">Back to Movie Lounge</a> 
+<a href="javascript:history.back()">Choose another movie/a>
+<br/>
+<a class = "backtomain" th:href="@{/genres(title=${genresAsCollection})}">Choose your genre</a> 
 
 </body>
 </html>

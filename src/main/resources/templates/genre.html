@@ -13,25 +13,24 @@
 		th:href="@{/onereview/(id=${review.id})}"> <img
 		th:src="${review.imageUrl}" width="300" height="150" />
 		<div th:text="${review.title}"></div></a>
-	<br />
-
-<p>Click the button to demonstrate the prompt box.</p>
-
-<button onclick="myFunction()">Click me to enter a movie</button>
-
-<p id="demo"></p>
-
-<script>
-function myFunction() {
-    var movie = prompt("Please enter your movie name", "Your movie goes here");
-    if (movie != null) {
-        document.getElementById("demo").innerHTML =
-        "Your movie " + movie + " will be added to the database !";
-    }
-}
-</script>
 	
-	<br />
+	<p>Click the button to demonstrate the prompt box.</p>
+
+	<button onclick="myFunction()">Click me to enter a movie</button>
+
+	<p id="demo"></p>
+
+	<script>
+		function myFunction() {
+			var movie = prompt("Please enter your movie name",
+					"Your movie goes here");
+			if (movie != null) {
+				document.getElementById("demo").innerHTML = "Your movie "
+						+ movie + " will be added to the database !";
+			}
+		}
+	</script>
+
 	<a class="backtomain" th:href="@{/genres(title=${genresAsCollection})}">Back
 		to Movie Lounge</a>
 
