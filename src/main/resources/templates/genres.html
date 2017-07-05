@@ -13,6 +13,7 @@
  
 
 <a th:each="genre: ${genresAsCollection}" th:href="@{/genre(id=${genre.id})}">
+
 <div th:text="${genre.title}"></div></a>
 <!-- <div id="background"></div> 
  -->

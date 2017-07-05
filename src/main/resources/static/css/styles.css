@@ -30,6 +30,8 @@ a {
     color: black
      font-family: cursive;
      font-size: 10px ;
-
-
+}
+label{
+    display: block; 
+    padding-top: 5px
 }

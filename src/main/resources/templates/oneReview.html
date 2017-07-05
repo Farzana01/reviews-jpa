@@ -17,15 +17,27 @@
 <p th:text="${selectedReview.date}"></p>
 <p th:text="${selectedReview.synopsis}"></p>
 
-<br />
+<p>Click the button to demonstrate the prompt box.</p>
 
-<form>   
+<button onclick="myFunction()">Click me to enter a review</button>
+
+<p id="demo"></p>
+
+<script>
+function myFunction() {
+    var review = prompt("Please enter a short review", "Your review goes here");
+    if (review != null) {
+        document.getElementById("demo").innerHTML =
+        "Your review for the movie " + review + " will be added to the database !";
+    }
+}
+</script>
+<!-- <form>   
       <label for="reviewName">You can add your own review to this movie:</label> 
         <input type="text" value="" />
             <button type="submit">Submit</button>
 
-</form>
-
+</form> -->
 <br />
 <!-- <a class = "moviepage" th:href="@{/genre(title=${genre.id})}"> Go back to choose another movie</a>
 <br /> -->
