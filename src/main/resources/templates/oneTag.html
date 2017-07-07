@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Movies by Tags</title>
+
+</head>
+<body>
+<h1>Movies by Tags</h1>
+
+<li th:each="currentselectedReview:${oneTag.reviews}"><span th:text="${currentselectedReview.title}"></span></li>
+
+<a href="javascript:history.back()">Go Back to Movie List Page</a>
+<br/>
+<a class = "backtomain" th:href="@{/genres(title=${genresAsCollection})}">Choose your genre</a> 
+
+
+
+</body>
+</html>

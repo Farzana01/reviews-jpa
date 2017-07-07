@@ -9,6 +9,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -59,23 +60,45 @@ public class ReviewsController {
          return "onereview";
      }
 	
-	@RequestMapping("/deleteReview")
-	public String deleteReview(@RequestParam long categoryId, @RequestParam long reviewId) {
-		reviewRepo.delete(reviewId);
-		return "redirect:/category?categoryId=" + categoryId;
-	}
-	
-	@RequestMapping("/createReview")
-	public String createReview(@RequestParam long Id, @RequestParam String title, @RequestParam String content) {
-		Genre selected = genreRepo.findOne(Id);
-		reviewRepo.save(new Review(selected, title, content));
-		return "redirect:/genre?genreId=" + Id;
-	}
-	
+//	@RequestMapping("/deleteReview")
+//	public String deleteReview(@RequestParam long categoryid, @RequestParam long reviewid) {
+//		reviewRepo.delete(reviewid);
+//		return "redirect:/category?categoryid=" + categoryid;
+//	}
+//	
+//	@RequestMapping("/createReview")
+//	public String createReview(@RequestParam long id, @RequestParam String title, @RequestParam String content) {
+//		Genre selected = genreRepo.findOne(id);
+//		reviewRepo.save(new Review(selected, title, content));
+//		return "redirect:/genre?genreid=" + id;
+//	}
+//	
 	@RequestMapping("/tags")
-    public String fetchTags(Model model) {
+    public String fetchTags(@RequestParam long id, Model model) {
          model.addAttribute("tags", tagRepo.findAll());
          return "tags";
          }
+	@RequestMapping("/oneTag")
+    public String fetchOneTag(@RequestParam long id, Model model) {
+         model.addAttribute("oneTag",tagRepo.findOne(id));
+         return "oneTag";
+     }
+	@RequestMapping("/tags")
+	public String showFoods(Model model) {
+		model.addAttribute("tags", tagRepo.findAll());
+		return "tags";
+		
+	}
 	
+//	@RequestMapping("/tags/delete/{id}")
+//	public String deleteTag(@PathVariable long id) {
+//		Tag toDelete = tagRepo.findOne(id);
+// 		for(Review review: toDelete.getReviews()) {
+// 			review.remove(toDelete);
+// 			reviewRepo.save(review);
+// 		}
+//		
+//		tagRepo.delete(toDelete);
+//		return "redirect:/tags";
+//	}
 	}
