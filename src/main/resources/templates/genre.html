@@ -14,7 +14,14 @@
 		th:src="${review.imageUrl}" width="300" height="150" />
 		<div th:text="${review.title}"></div></a>
 	
-	<p>Click the button to demonstrate the prompt box.</p>
+	<form action="/onereview">
+    <input type="search" name="id" placeholder="Type 1 or 2 to choose a movie" value="" />
+    
+    <button type="submit">Get your review</button>
+</form>
+
+	
+	<!-- <p>Enter a movie name to this genre.</p>
 
 	<button onclick="myFunction()">Click me to enter a movie</button>
 
@@ -30,9 +37,13 @@
 			}
 		}
 	</script>
+ -->
+<br />
+
+ 
 
 	<a class="backtomain" th:href="@{/genres(title=${genresAsCollection})}">Back
-		to Movie Lounge</a>
+		to Main Page</a>
 
 </body>
 </html>
