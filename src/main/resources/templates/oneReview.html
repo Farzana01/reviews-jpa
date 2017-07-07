@@ -17,11 +17,11 @@
 <p th:text="${selectedReview.date}"></p>
 <p th:text="${selectedReview.synopsis}"></p>
 
-<a th:each="currentTag: ${selectedReview.tags}" th:href="@{/tags(id=${currentTag.id})}">
+<a th:each="currentTag: ${selectedReview.tags}" th:href="@{/oneTag(id=${currentTag.id})}">
+	<div th:text="${currentTag.name}"></div>
+</a>
 
-<div th:text="${currentTag.name}"></div></a>
-
-<p>Click the button to demonstrate the prompt box.</p>
+<!-- <p>Click the button to demonstrate the prompt box.</p>
 
 <button onclick="myFunction()">Click me to enter a review</button>
 
@@ -36,7 +36,7 @@ function myFunction() {
         "Your review is as follows: " + review ;
     }
 }
-</script>
+</script> -->
 <!-- <form>   
       <label for="reviewName">You can add your own review to this movie:</label> 
         <input type="text" value="" />

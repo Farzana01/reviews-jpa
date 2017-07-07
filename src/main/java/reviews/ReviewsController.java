@@ -1,6 +1,6 @@
 package reviews;
 
- import java.util.Map;
+import java.util.Map;
 import java.util.Set;
 
 import javax.annotation.Resource;
@@ -18,87 +18,84 @@ public class ReviewsController {
 
 	@Resource
 	ReviewRepository reviewRepo;
-	
+
 	@Resource
 	GenreRepository genreRepo;
-	
+
 	@Resource
 	TagRepository tagRepo;
-	
+
 	private Logger log = LoggerFactory.getLogger(getClass());
-	
-		
-	@RequestMapping("/genres")//the genres in the parenthesis is the url(localhost.8080/genres)
-	//(Model,model) is used to connect with a unique name for thymeleaf in html(ex:genresAsCollection should be in html file within thymeleaf
+
+	@RequestMapping("/genres") // the genres in the parenthesis is the url(localhost.8080/genres)
+	// (Model,model) is used to connect with a unique name for thymeleaf in
+	// html(ex:genresAsCollection should be in html file within thymeleaf
 	public String fetchGenres(Model model) {
-	// you will see genresAsCollection in the thymeleaf loop (for th:each...)
+		// you will see genresAsCollection in the thymeleaf loop (for th:each...)
 		model.addAttribute("genresAsCollection", genreRepo.findAll());
 		return "genres";
 	}
-	
+
 	@RequestMapping("/genre")
-    public String fetchGenre(@RequestParam long id, Model model) {
-         model.addAttribute("genre", genreRepo.findOne(id));
-         return "genre";
-     }
-    
+	public String fetchGenre(@RequestParam long id, Model model) {
+		model.addAttribute("genre", genreRepo.findOne(id));
+		return "genre";
+	}
+
 	@RequestMapping("/allReviews") // endpoint
 	// we can use Map instead of Model
 	public String fetchReviews(Map<String, Object> model) {
 		Iterable<Review> allTheReviews = reviewRepo.findAll();
 		model.put("allReviewsModel", allTheReviews);
-		
+
 		for (Review currentReview : allTheReviews) {
 			log.info(currentReview.toString());
 		}
 		return "reviewsView";
 	}
-	
+
 	@RequestMapping("/onereview")
-    public String fetchOne(@RequestParam("id") long id, Model model) {
-         model.addAttribute("selectedReview",reviewRepo.findOne(id));
-         return "onereview";
-     }
-	
-//	@RequestMapping("/deleteReview")
-//	public String deleteReview(@RequestParam long categoryid, @RequestParam long reviewid) {
-//		reviewRepo.delete(reviewid);
-//		return "redirect:/category?categoryid=" + categoryid;
-//	}
-//	
-//	@RequestMapping("/createReview")
-//	public String createReview(@RequestParam long id, @RequestParam String title, @RequestParam String content) {
-//		Genre selected = genreRepo.findOne(id);
-//		reviewRepo.save(new Review(selected, title, content));
-//		return "redirect:/genre?genreid=" + id;
-//	}
-//	
+	public String fetchOne(@RequestParam("id") long id, Model model) {
+		model.addAttribute("selectedReview", reviewRepo.findOne(id));
+		return "onereview";
+	}
+
+	// @RequestMapping("/deleteReview")
+	// public String deleteReview(@RequestParam long categoryid, @RequestParam long
+	// reviewid) {
+	// reviewRepo.delete(reviewid);
+	// return "redirect:/category?categoryid=" + categoryid;
+	// }
+	//
+	// @RequestMapping("/createReview")
+	// public String createReview(@RequestParam long id, @RequestParam String title,
+	// @RequestParam String content) {
+	// Genre selected = genreRepo.findOne(id);
+	// reviewRepo.save(new Review(selected, title, content));
+	// return "redirect:/genre?genreid=" + id;
+	// }
+	//
 	@RequestMapping("/tags")
-    public String fetchTags(@RequestParam long id, Model model) {
-         model.addAttribute("tags", tagRepo.findAll());
-         return "tags";
-         }
-	@RequestMapping("/oneTag")
-    public String fetchOneTag(@RequestParam long id, Model model) {
-         model.addAttribute("oneTag",tagRepo.findOne(id));
-         return "oneTag";
-     }
-	@RequestMapping("/tags")
-	public String showFoods(Model model) {
+	public String fetchTags(@RequestParam long id, Model model) {
 		model.addAttribute("tags", tagRepo.findAll());
 		return "tags";
-		
 	}
-	
-//	@RequestMapping("/tags/delete/{id}")
-//	public String deleteTag(@PathVariable long id) {
-//		Tag toDelete = tagRepo.findOne(id);
-// 		for(Review review: toDelete.getReviews()) {
-// 			review.remove(toDelete);
-// 			reviewRepo.save(review);
-// 		}
-//		
-//		tagRepo.delete(toDelete);
-//		return "redirect:/tags";
-//	}
+
+	@RequestMapping("/oneTag")
+	public String fetchOneTag(@RequestParam long id, Model model) {
+		model.addAttribute("oneTag", tagRepo.findOne(id));
+		return "oneTag";
 	}
+
+	// @RequestMapping("/tags/delete/{id}")
+	// public String deleteTag(@PathVariable long id) {
+	// Tag toDelete = tagRepo.findOne(id);
+	// for(Review review: toDelete.getReviews()) {
+	// review.remove(toDelete);
+	// reviewRepo.save(review);
+	// }
+	//
+	// tagRepo.delete(toDelete);
+	// return "redirect:/tags";
+	// }
+}
