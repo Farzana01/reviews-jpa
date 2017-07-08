@@ -11,7 +11,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
 public class ReviewsController {
@@ -26,8 +28,8 @@ public class ReviewsController {
 	TagRepository tagRepo;
 
 	private Logger log = LoggerFactory.getLogger(getClass());
-
-	@RequestMapping("/genres") // the genres in the parenthesis is the url(localhost.8080/genres)
+	// the genres in the parenthesis is the url(localhost.8080/genres)
+	@RequestMapping("/genres") 
 	// (Model,model) is used to connect with a unique name for thymeleaf in
 	// html(ex:genresAsCollection should be in html file within thymeleaf
 	public String fetchGenres(Model model) {
@@ -60,21 +62,6 @@ public class ReviewsController {
 		return "onereview";
 	}
 
-	// @RequestMapping("/deleteReview")
-	// public String deleteReview(@RequestParam long categoryid, @RequestParam long
-	// reviewid) {
-	// reviewRepo.delete(reviewid);
-	// return "redirect:/category?categoryid=" + categoryid;
-	// }
-	//
-	// @RequestMapping("/createReview")
-	// public String createReview(@RequestParam long id, @RequestParam String title,
-	// @RequestParam String content) {
-	// Genre selected = genreRepo.findOne(id);
-	// reviewRepo.save(new Review(selected, title, content));
-	// return "redirect:/genre?genreid=" + id;
-	// }
-	//
 	@RequestMapping("/tags")
 	public String fetchTags(@RequestParam long id, Model model) {
 		model.addAttribute("tags", tagRepo.findAll());
@@ -87,15 +74,26 @@ public class ReviewsController {
 		return "oneTag";
 	}
 
-	// @RequestMapping("/tags/delete/{id}")
-	// public String deleteTag(@PathVariable long id) {
-	// Tag toDelete = tagRepo.findOne(id);
-	// for(Review review: toDelete.getReviews()) {
-	// review.remove(toDelete);
-	// reviewRepo.save(review);
-	// }
-	//
-	// tagRepo.delete(toDelete);
-	// return "redirect:/tags";
-	// }
+	@RequestMapping("/delete")
+	public String deleteTag(@RequestParam long tagId, @RequestParam long reviewId) {
+		Tag toDelete = tagRepo.findOne(tagId);
+ 		for(Review review: toDelete.getReviews()) {
+ 			review.remove(toDelete);
+ 			reviewRepo.save(review);
+ 		}
+		
+		tagRepo.delete(toDelete);
+		return "redirect:/onereview?id=" + reviewId;
+	}
+
+	@RequestMapping("/createTag")
+	public String createTag(@RequestParam long id, String name) {
+		Tag tag = new Tag(name);
+		tagRepo.save(tag);
+		Review review = reviewRepo.findOne(id);
+		review.add(tag);
+		reviewRepo.save(review);
+		return "redirect:/onereview?id=" + id;
+	}
+
 }

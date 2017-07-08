@@ -18,10 +18,12 @@ public class Tag {
 	private Set<Review> reviews;
 
 	private String name;
+	
 
 	public long getId() {
 		return id;
 	}
+	
 
 	public Tag() {
 	}
@@ -36,4 +38,5 @@ public class Tag {
 	public String getName() {
 		return name;
 	}
-}
+
+	}

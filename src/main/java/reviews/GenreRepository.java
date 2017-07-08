@@ -11,4 +11,4 @@ import org.springframework.stereotype.Component;
 @Component
 public interface GenreRepository extends CrudRepository<Genre, Long> {
 
-} 
+}

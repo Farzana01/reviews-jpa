@@ -36,7 +36,8 @@ public class Review {
 	private String synopsis;
 
 	// Constructor
-	public Review(Genre genre, String title, String content, String date, String synopsis, String imageUrl,Tag... tags) {
+	public Review(Genre genre, String title, String content, String date, String synopsis, String imageUrl,
+			Tag... tags) {
 		this.genre = genre;
 		this.title = title;
 		this.content = content;
@@ -87,5 +88,13 @@ public class Review {
 
 	public Set<Tag> getTags() {
 		return tags;
+	}
+
+	public void remove(Tag toDelete) {
+		tags.remove(toDelete);
+	}
+
+	public void add(Tag toAdd) {
+		tags.add(toAdd);
 	}
 }

@@ -21,34 +21,22 @@
 	<div th:text="${currentTag.name}"></div>
 </a>
 
-<!-- <p>Click the button to demonstrate the prompt box.</p>
+<form>
+		<input name="reviewId" type="hidden" th:value="${selectedReview.id}" />
+		<ul>
+			<li th:each="tag: ${selectedReview.tags}"><a th:href="@{/oneTag(id=${tag.id})}"><span th:text="${tag.name}" /></a>	
+			<button name="tagId" th:value="${tag.id}" th:formaction="@{/delete}">delete</button></li>
+		</ul>
+	</form>
 
-<button onclick="myFunction()">Click me to enter a review</button>
+<form method="POST">
+			<input name="id" type="hidden" th:value="${selectedReview.id}" />
+	
+		<label>Add Tag: <input type="text" name="name" /></label>
+		<br/>
+		<button th:formaction="@{/createTag}">Create Tag</button>	
+		</form>		
 
-<p id="demo"></p>
-
-
-<script>
-function myFunction() {
-    var review = prompt("Please enter a short review", "Your review goes here");
-    if (review != null) {
-        document.getElementById("demo").innerHTML =
-        "Your review is as follows: " + review ;
-    }
-}
-</script> -->
-<!-- <form>   
-      <label for="reviewName">You can add your own review to this movie:</label> 
-        <input type="text" value="" />
-            <button type="submit">Submit</button>
-</form> -->
 <br />
-<!-- <a class = "moviepage" th:href="@{/genre(title=${genre.id})}"> Go back to choose another movie</a>
-<br /> -->
-
-<a href="javascript:history.back()">Go Back to Movie List Page</a>
-<br/>
-<a class = "backtomain" th:href="@{/genres(title=${genresAsCollection})}">Choose your genre</a> 
-
 </body>
 </html>

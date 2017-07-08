@@ -7,43 +7,24 @@
 </head>
 <body>
 
+
 	<h1>The Lounge Movie Genres</h1>
 	<h2>Click on the title or the picture to see the review.</h2>
 	<a th:each="review: ${genre.reviews}"
 		th:href="@{/onereview/(id=${review.id})}"> <img
 		th:src="${review.imageUrl}" width="300" height="150" />
 		<div th:text="${review.title}"></div></a>
-	
-	<!-- <form action="/onereview">
-    <input type="search" name="id" placeholder="Type 1 or 2 to choose a movie" value="" />
-    
-    <button type="submit">Get your review</button>
-</form>
+	<br />
 
-	
-	<p>Enter a movie name to this genre.</p>
+	<form method="get">
+		<label for="movieName">Add your own movie name to this genre:</label>
+		<input type="text" th:field="${genre.title}" addvalue="" />
+		<button type="submit">Submit</button>
+	</form>
 
-	<button onclick="myFunction()">Click me to enter a movie</button>
-
-	<p id="demo"></p>
-
-	<script>
-		function myFunction() {
-			var movie = prompt("Please enter your movie name",
-					"Your movie goes here");
-			if (movie != null) {
-				document.getElementById("demo").innerHTML = "Your movie "
-						+ movie + " will be added to the database !";
-			}
-		}
-	</script>
-
-<br />
-
- 
- -->
+	<br />
 	<a class="backtomain" th:href="@{/genres(title=${genresAsCollection})}">Back
-		to Main Page</a>
+		to Movie Lounge</a>
 
 </body>
 </html>
