@@ -16,12 +16,6 @@
 		<div th:text="${review.title}"></div></a>
 	<br />
 
-	<form method="get">
-		<label for="movieName">Add your own movie name to this genre:</label>
-		<input type="text" th:field="${genre.title}" addvalue="" />
-		<button type="submit">Submit</button>
-	</form>
-
 	<br />
 	<a class="backtomain" th:href="@{/genres(title=${genresAsCollection})}">Back
 		to Movie Lounge</a>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+
+	<title>Tags</title>
+	<link rel="stylesheet" type="text/css" href="/css/styles.css"></link>
+
+</head>
+<body>
+<h1>Tags Collection</h1>
+
+<ul>
+    <li> 
+            <a th:each="tag: ${tags}" th:href="@{/oneTag(id=${tag.id})}" ><div th:text="${tag.name}"></div></a>
+
+            </li>
+        </ul>
+
+        <a class="backtomain" th:href="@{/genres(title=${genresAsCollection})}">Back
+		to Movie Lounge</a>
+
+		
+</body>
+</html>
+
+
+
+

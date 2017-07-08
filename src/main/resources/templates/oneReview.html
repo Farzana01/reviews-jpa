@@ -17,14 +17,10 @@
 <p th:text="${selectedReview.date}"></p>
 <p th:text="${selectedReview.synopsis}"></p>
 
-<a th:each="currentTag: ${selectedReview.tags}" th:href="@{/oneTag(id=${currentTag.id})}">
-	<div th:text="${currentTag.name}"></div>
-</a>
-
 <form>
 		<input name="reviewId" type="hidden" th:value="${selectedReview.id}" />
 		<ul>
-			<li th:each="tag: ${selectedReview.tags}"><a th:href="@{/oneTag(id=${tag.id})}"><span th:text="${tag.name}" /></a>	
+			<li th:each="tag: ${selectedReview.tags}"><a th:href="@{/tags(id=${tag.id})}"><span th:text="${tag.name}" /></a>	
 			<button name="tagId" th:value="${tag.id}" th:formaction="@{/delete}">delete</button></li>
 		</ul>
 	</form>
@@ -32,10 +28,14 @@
 <form method="POST">
 			<input name="id" type="hidden" th:value="${selectedReview.id}" />
 	
-		<label>Add Tag: <input type="text" name="name" /></label>
+		<label>Add a Tag: <input type="text" name="name" /></label>
 		<br/>
 		<button th:formaction="@{/createTag}">Create Tag</button>	
 		</form>		
+
+		<a class="backtomain" th:href="@{/genres(title=${genresAsCollection})}">Back
+		to Movie Lounge</a>
+
 
 <br />
 </body>
