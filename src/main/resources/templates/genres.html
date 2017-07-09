@@ -1,20 +1,39 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head>
-	<title>Lounge Movie Reviews</title>
-	<link rel="stylesheet" type="text/css" href="/css/styles.css"></link>
-</head>
-<body>
-<h1>The Lounge Movie Reviews</h1>
-    <h2> Welcome Movie Lovers! Please click on any link below to choose your genre.</h2>
+
+	<title>MAIN PAGE</title>
+ <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"></link> 
+ <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway"></link> 
+
+<style>
+body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
+body, html {height: 100%}
+.bgimg {
+    background-image: url('/images/genre.jpg');
+    min-height: 100%;
+    background-position: 'center';
+    background-size: 'cover';
+}
+</style>
+<body  class="w3-brown">
 
 
-<img src="images/genre.jpg" width="500" height="250"/>
- 
+<!-- Header -->
+<header class="w3-container w3-center w3-padding-32"> 
+  <h1><b>Farzana's Exclusive Movie Lounge</b></h1>
+  <p>Welcome to my site of <span class="w3-tag"> good movies</span></p>
+</header>
 
-<a th:each="genre: ${genresAsCollection}" th:href="@{/genre(id=${genre.id})}">
-<div th:text="${genre.title}"></div></a>
-<!-- <div id="background"></div> 
- -->
+<div class="bgimg w3-display-container w3-animate-opacity w3-text-white"></div>
+  <div class="w3-display-topleft w3-padding-large w3-xlarge"></div>
+  <div class="w3-display-center"></div>
+    <h1 class="w3-jumbo w3-animate-bottom">COMING SOON IN THEATERS <span class="w3-opacity">NEAR YOU</span></h1>
+    <hr class="w3-border-grey" style="margin:auto;width:40%"></hr>
+    <p class="w3-large w3-center">What would you like to see?</p>
+  <div class="w3-display-bottomleft w3-padding-large"></div>
+  <a th:each="genre: ${genresAsCollection}" th:href="@{/genre(id=${genre.id})}">
+  <div th:text="${genre.title}"></div></a>
+  
+
 </body>
 </html>

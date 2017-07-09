@@ -1,37 +1,4 @@
-body h1 {
-     color: blue;
-     font-family: cursive;
-     font-size: 20px ;
-}
-
 body {
-	
-    background-color: lightyellow ;
-    }
-
-img {
-   padding:1px;
-   border:1px solid #021a40;
-   
+    background-color: aliceblue;
 }
 
-body a {
-
-font-size: 20px;
-color: blue;
-font-family: cursive;
-
-}
-p {
-	font : black;
-}
-
-a {
-    color: black
-     font-family: cursive;
-     font-size: 10px ;
-}
-label{
-    display: block; 
-    padding-top: 5px
-}

@@ -2,12 +2,12 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 
-	<title>One Lounge Review</title>
+	<title>Single Movie Review</title>
 	<link rel="stylesheet" type="text/css" href="/css/styles.css"></link>
 
 </head>
 <body>
-<h1>One Lounge Review</h1>
+<h1>Single Movie Review</h1>
 
  <img th:src="${selectedReview.imageUrl}"/>
 
@@ -16,6 +16,8 @@
 <p th:text="${selectedReview.content}"></p>
 <p th:text="${selectedReview.date}"></p>
 <p th:text="${selectedReview.synopsis}"></p>
+
+<p> Click on any tag to go to the Tag Collection page</p>
 
 <form>
 		<input name="reviewId" type="hidden" th:value="${selectedReview.id}" />
